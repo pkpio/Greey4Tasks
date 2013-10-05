@@ -1,0 +1,251 @@
+
+<!-- saved from url=(0082)http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Greedy/activity.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<title>Greedy Algorithms</title>
+ <meta name="author" content="Rashid Bin Muhammad">
+</head>
+
+  <body background="./Greedy Algorithms_files/Bck2.gif" link="#0000ff" vlink="#0000ff" alink="#ff0000" style="">
+                                         
+<center>               
+<p> 
+<font size="4"> 
+<img src="./Greedy Algorithms_files/redline.gif" height="2" width="640"></font></p>
+
+<h2><font size="6">An Activity Selection Problem</font></h2>
+
+<p><font size="4"><img src="./Greedy Algorithms_files/redline.gif" height="2" width="640"></font></p>
+
+</center>
+
+<h3>&nbsp;</h3>
+<p><font size="6" face="Blackadder ITC" color="#FF0000">A</font><font size="4">n 
+activity-selection is the problem of scheduling a resource among several 
+competing activity.<br>
+&nbsp;</font></p>
+<p><b><font size="5" color="#CC0000">Problem Statement</font></b><font size="4">&nbsp;&nbsp;&nbsp;  
+</font>  </p>
+<p><font size="4">Given a set <i>S</i> of <i>n</i> activities with and start time, <i>S</i><sub><i>i</i>
+</sub>and <i>f<sub>i</sub></i>, finish time of an i<sup>th</sup> activity. Find 
+the maximum size set of mutually compatible activities.</font></p>
+<p>&nbsp;</p>
+<p><b><font size="5" color="#CC0000">Compatible Activities</font></b></p>
+<blockquote>
+<p><font size="4">Activities <i>i</i> and <i>j</i> are compatible if the half-open internal [<i>s<sub>i</sub>, 
+f<sub>i</sub></i>) and [<i>s<sub>j</sub>, f<sub>j</sub></i>) <br>
+do not overlap, 
+that is, <i>i</i> and <i>j</i> are compatible if <i>s<sub>i </sub></i>&#8805;<i> f</i><sub><i>j</i>&nbsp;
+</sub>and <i>s</i><sub><i>j</i> </sub>&#8805; </font> <i><font size="4">&nbsp;f</font><sub><font size="4">i 
+</font> </sub></i></p>
+</blockquote>
+<h3>&nbsp;</h3>
+<blockquote>
+	<blockquote>
+		<h3><font size="5" color="#FF00FF">Greedy Algorithm for Selection Problem</font></h3>
+		<p><font size="5">I.&nbsp;&nbsp;&nbsp;&nbsp; Sort the input activities by increasing finishing time.<br>
+		<i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f<sub>1</sub></i> &#8804;&nbsp; 
+		<i>f<sub>2</sub></i> &#8804;&nbsp; . . . &#8804;<i>&nbsp; f</i></font><sub><font size="5"><i>n</i>
+		</font></sub></p>
+		<p><font size="5">II.&nbsp;&nbsp;&nbsp; Call <b>GREEDY-ACTIVITY-SELECTOR</b> (s, f)</font></p>
+		<ol>
+			<li><i><font size="5">n</font></i><font size="5"> = length [<i>s</i>] 
+			</font></li>
+			<li><i><font size="5">A</font></i><font size="5">={<i>i</i>} </font>
+			</li>
+			<li><i><font size="5">j</font></i><font size="5"> = 1 </font></li>
+			<li><font size="5"><b>for</b> <i>&nbsp;i</i> = 2 <b>&nbsp;to</b>&nbsp; n 
+			</font></li>
+			<li><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>do 
+			if</b>&nbsp; <i>&nbsp;s<sub>i</sub></i> 
+  &#8805; <i>f<sub>j</sub></i> </font></li>
+			<li><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<b>&nbsp;then</b>&nbsp; A= AU{<i>i</i>} </font></li>
+			<li><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>&nbsp;&nbsp; j</i> = 
+			<i>i</i> </font></li>
+			<li><font size="5"><b>return</b> <i>&nbsp;set A</i> </font></li>
+		</ol>
+	</blockquote>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><b><font size="5" color="#CC0000">Operation of the algorithm</font></b></p>
+<p><font size="4">Let 11 activities are given <i>S</i> = {<i>p, q, r, s, t, u, v, w, x, y, z</i>} 
+start and finished times for proposed activities are (1, 4), (3, 5), (0, 6), 5, 
+7), (3, 8), 5, 9), (6, 10), (8, 11), (8, 12), (2, 13) and (12, 14).</font></p>
+<blockquote>
+  <p><font size="4">A = {p} Initialization at line 2<br>
+  A = {p, s} line 6 - 1<sup>st</sup> iteration of FOR - loop<br>
+  A = {p, s, w} line 6 -2<sup>nd</sup> iteration of FOR - loop<br>
+  A = {p, s, w, z} line 6 - 3<sup>rd</sup> iteration of FOR-loop<br>
+  Out of the FOR-loop and Return A = {p, s, w, z}</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><b><font size="5" color="#CC0000">Analysis</font></b></p>
+<blockquote>
+<p><font size="4">Part I requires </font><font size="5">O<i>(n lg n)</i></font><font size="4"> time (use merge of heap sort).<br>
+Part II requires </font><font size="5"> <font face="Times New Roman">&#952;</font><i>(n)</i></font><font size="4"> time assuming that activities were already 
+sorted in part I by their finish time.</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><b><font size="5" color="#CC0000">Correctness</font></b></p>
+<p><font size="4"><font color="#FF00FF">Note that</font> Greedy algorithm do not always produce optimal solutions but 
+GREEDY-ACTIVITY-SELECTOR does.</font></p>
+<p>&nbsp;</p>
+<p><b><font size="5">Theorem&nbsp;&nbsp;&nbsp; </font> </b> <i>
+<font size="5" color="#FF0000">Algorithm GREED-ACTIVITY-SELECTOR produces 
+solution of maximum size for the activity-selection problem</font><font size="4">.</font></i></p>
+<blockquote>
+<p>&nbsp;</p>
+<p><b><font size="4"><font color="#FF00FF">Proof Idea</font>&nbsp;&nbsp;&nbsp;
+</font> </b><font size="4">Show the activity problem satisfied</font></p>
+  <blockquote>
+    <ol type="I">
+      <li><font size="4">Greedy choice property.</font></li>
+      <li><font size="4">Optimal substructure property.</font></li>
+    </ol>
+  </blockquote>
+</blockquote>
+<p>&nbsp;</p>
+<p><i><b><font size="5" color="#CC0000">Proof</font></b></i></p>
+<ol type="I">
+  <li><font size="4">Let <i>S = {1, 2, . . . , n}</i> be the set of activities. Since 
+activities are in order by finish time. It implies that activity 1 has the 
+earliest finish time. <br>
+Suppose, </font><font size="5"> <i>A<img border="0" src="./Greedy Algorithms_files/subset.GIF" width="16" height="16" align="middle">S</i></font><font size="4"> is an optimal solution and let activities in
+	</font><font size="5">
+<i>A</i></font><font size="4"> are ordered by finish time. Suppose, the first activity in 
+	</font><font size="5"> <i>A</i></font><font size="4"> is
+</font><font size="5">
+<i>k</i></font><font size="4">.<br>
+If </font><font size="5" color="#FF00FF"><i>k = 1</i></font><font size="4">, then A begins with greedy choice and we are done (or to be very 
+precise, there is nothing to proof here).<br>If </font>
+	<font color="#FF00FF" size="5"><i>k
+	<img border="0" src="./Greedy Algorithms_files/ne.gif" width="12" height="19" align="top">1</i></font><font size="4">, we want to show that there is another solution 
+	</font><font size="5"> 
+	<i>B</i></font><font size="4"> that 
+begins with greedy choice, activity 1.<br>Let </font><font size="5"><i>B =&nbsp; A</i> - {<i>k</i>}<img border="0" src="./Greedy Algorithms_files/union.gif" width="10" height="15">{1}</font><font size="4">. Because
+	</font> <font size="5">
+	<i>f</i><sub><i>1</i> 
+	<img border="0" src="./Greedy Algorithms_files/leq.gif" width="12" height="14"></sub>&nbsp; <i>f<sub>k</sub></i></font><font size="4">, 
+the activities in </font> <font size="5"> <i>B</i></font><font size="4"> are disjoint and since </font> 
+	<font size="5">B</font><font size="4"> has same number of 
+activities as </font> <font size="5"> <i>A</i></font><font size="4">, i.e., <i>|</i></font><i><font size="5">A| = |B|</font></i><font size="4">, </font> 
+	<font size="5"> <i>B</i></font><font size="4"> is also optimal. </font> </li>
+  <li><font size="4">Once the greedy choice is made, the problem reduces to finding an 
+optimal solution for the problem. If 
+</font><font size="5"> <i>A</i></font><font size="4"> is an optimal solution to the 
+original problem 
+</font><font size="5"> <i>S</i></font><font size="4">, then 
+</font><font size="5"> <i>A` = A - {1}</i></font><font size="4"> is an optimal solution to 
+the activity-selection problem 
+</font><font size="5"> <i>S` = {i
+	<img border="0" src="./Greedy Algorithms_files/belong.gif" width="13" height="13" align="middle"> S: S<sub>i 
+	<img border="0" src="./Greedy Algorithms_files/geq.gif" width="12" height="14"></sub>&nbsp; f<sub>i</sub>}</i></font><font size="4">. <br>
+</font><font size="5" color="#FF00FF">why?</font><font size="4"> Because if we could find a solution <i>B`</i> to <i>S`</i> with more activities then
+<i>A`</i>, adding 1 to <i>B`</i> would yield a solution <i>B</i> to <i>S</i> 
+with more activities than A, there by contradicting the optimality.
+</font><font size="4" face="Times New Roman">&#9633;</font></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><font size="4">As an example consider the example.<b> </b>Given a set of activities to among lecture halls. Schedule 
+all the activities using minimal lecture halls.<br>
+In order to determine which activity should use which lecture hall, the 
+algorithm uses the GREEDY-ACTIVITY-SELECTOR to calculate the activities in the 
+first lecture hall. If there are some activities yet to be scheduled, a new 
+lecture hall is selected and GREEDY-ACTIVITY-SELECTOR is called again. This 
+continues until all activities have been scheduled. </font> </p>
+<p>&nbsp;</p>
+<blockquote>
+	<blockquote>
+		<p><b><font size="5"><font color="#FF00FF">LECTURE-HALL-ASSIGNMENT</font> (<i>s, f</i>)</font></b></p>
+		<blockquote>
+			<p><i><font size="5">n</font></i><font size="5"> = length [<i>s</i>)<br>
+			for&nbsp; <i>i</i> = 1 to <i>n</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			do HALL [<i>i</i>] = NIL<br><i>k</i> = 1<br>while (Not empty (<i>s</i>))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			do HALL [<i>k</i>] = GREEDY-ACTIVITY-SELECTOR (<i>s, t, n</i>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<i>k</i> = <i>k</i> + 1<br>return HALL</font></p>
+		</blockquote>
+	</blockquote>
+</blockquote>
+<p>&nbsp;</p>
+<p><i><font size="4">Following changes can be made in the GREEDY-ACTIVITY-SELECTOR (s, f) (see 
+<font color="#FF00FF">CLR</font>).</font></i></p>
+<blockquote>
+	<blockquote>
+		<blockquote>
+			<p><i><font size="5">j </font></i><font size="5">= first (<i>s</i>)<br>
+			<i>A</i> = <i>i</i><br>for <i>i</i> = <i>j</i> + 1 to <i>n</i><br>&nbsp;&nbsp;&nbsp; 
+			do if <i>s(i)</i> not= "-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			then if&nbsp; </font></p>
+		</blockquote>
+		<p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GREED-ACTIVITY-SELECTOR (<i>s, f, n</i>)</font></p>
+		<blockquote>
+			<p><i><font size="5">j </font></i><font size="5">= first (<i>s</i>)<br>
+			<i>A</i> = <i>i</i> = <i>j + 1</i> to <i>n</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			if <i>s</i>(<i>i</i>]<i> </i>not = "-" then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			if <i>s</i>[<i>i</i>] 
+  &#8805;&nbsp; <i>f</i>[<i>j</i>]|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			then <i>A</i> = <i>A</i>U{<i>i</i>}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<i>s</i>[<i>i</i>] =&nbsp; "-"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<i>&nbsp;j </i>=<i> i</i><br>return </font><i><font size="5">A</font></i></p>
+		</blockquote>
+	</blockquote>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><b><font size="5" color="#CC0000">Correctness</font></b><font size="4">&nbsp;  </font>  </p>
+<p><font size="4">The algorithm can be shown to be correct and 
+optimal. As a contradiction, assume the number of lecture halls are not optimal, 
+that is, the algorithm allocates more hall than necessary. Therefore, there 
+exists a set of activities </font><font size="5"> <i>B</i></font><font size="4"> which have been wrongly allocated. An 
+activity b belonging to <i>B</i> which has been allocated to hall </font>
+<font size="5"> <i>H</i>[<i>i</i>]</font><font size="4"> 
+should have optimally been allocated to </font><font size="5"> <i>H</i>[<i>k</i>]</font><font size="4">. This implies that 
+the activities for lecture hall </font><font size="5"> <i>H</i>[<i>k</i>]</font><font size="4"> have not been allocated 
+optimally, as the <font color="#FF00FF">GREED-ACTIVITY-SELECTOR produces the optimal set of activities 
+for a particular lecture hall</font>.</font></p>
+<p>&nbsp;</p>
+<p><b><font size="5" color="#CC0000">Analysis</font></b></p>
+<p><font size="4">In the worst case, the number of lecture halls require is 
+n. GREED-ACTIVITY-SELECTOR runs in </font><font size="5"> <i><font face="Times New Roman">&#952;</font>(n)</i></font><font size="4">. The running time of this 
+algorithm is </font><font size="5">O(<i>n</i><sup>2</sup>)</font><font size="4">.</font></p>
+<p><b><font size="4" color="#FF00FF">Two important Observations</font></b></p>
+<ul>
+  <li><font size="4">Choosing the activity of&nbsp; least duration will not always produce 
+an optimal solution. For example, we have a set of activities {(3, 5), (6, 8), 
+(1, 4), (4, 7), (7, 10)}. Here, either (3, 5) or (6, 8) will be picked first, 
+which will be picked first, which will prevent the optimal solution of {(1, 4), 
+(4, 7), (7, 10)} from being found.<br>
+&nbsp;</font></li>
+  <li><font size="4">Choosing the activity with the least overlap will not always 
+produce solution. For example, we have a set of activities {(0, 4), (4, 6), (6, 
+10), (0, 1), (1, 5), (5, 9), (9, 10), (0, 3), (0, 2), (7, 10), (8, 10)}. Here 
+the one with the least overlap with other activities is (4, 6), so it will be 
+picked first. But that would prevent the optimal solution of&nbsp; {(0, 1), (1, 5), 
+(5, 9), (9, 10)} from being found.</font></li>
+</ul>
+<p>&nbsp;</p>
+
+<p><font size="+1"><a href="http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Greedy/actSelectionGreedy.htm">Dynamic-Programming 
+Algorithm for the Activity-Selection Problem</a></font></p>
+<p>&nbsp;</p>
+ 
+<center>
+<p><font size="4"><img src="./Greedy Algorithms_files/redline.gif" height="2" width="640"></font></p>
+
+<p>
+<a href="http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html"> 
+<font size="4"> 
+<img src="./Greedy Algorithms_files/back.gif" border="0" height="47" width="49"></font></a></p>
+</center>
+
+<p>&nbsp;</p>
+
+
+</body></html>
