@@ -1,7 +1,7 @@
-//Author: Praveen Kumar Pendyala
-//Created: 05/10/2013
-//Project: EE 677: VLSI CAD course project - Greedy Algorithm for Activity scheduling
-//Github: 
+//Author    : Praveen Kumar Pendyala
+//Created   : 05/10/2013
+//Project   : EE 677: VLSI CAD course project - Greedy Algorithm for Activity scheduling
+//Github    : https://github.com/praveendath92/EE-677_project
 
 clc
 clear
@@ -14,6 +14,13 @@ global fActsCount;  //Count of # of final activities
 
 startTime = [0 2 4 3];
 endTime = [2 3 6 5];
+
+if(size(startTime, 2) ~= size(endTime, 2))
+    disp("Size mismatch !")
+    disp("startTime and endTime matrix sizes should be same !")
+    disp("Press CTRL+C to exit")
+    while(1) end
+end
 
 //Initialising final activity time arrays and count
 fStartTime = zeros(startTime);
@@ -109,7 +116,11 @@ displayActivities(startTime, endTime, size(startTime,2))
 disp("")
 disp("Greedy activity selection by comparing startTime(i) and endTime(i+1)")
 greedyActivitiesSelect()
+
+disp("")
+disp("The optimum list of activities after greedy selection are")
 displayActivities(fStartTime, fEndTime, fActsCount)
 
 
-
+disp("In this case Greedy alogrithm actually works")
+disp("So, this is the best solution to the problem")
