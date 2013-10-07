@@ -12,8 +12,10 @@ global fStartTime;  //Final list of activities start times
 global fEndTime;    //Final list of activities end times
 global fActsCount;  //Count of # of final activities
 
-startTime = [0 2 4 3];
-endTime = [2 3 6 5];
+//Add activities here
+//You may try copying more inputs in the comment into the array
+startTime   = [0 2 4 3];    // 10 6 5 4 6 8 9 11 10 8 1 2 3 6 8 -More inputs
+endTime     = [2 3 6 5];    // 11 7 9 7 10 10 10 13 11 13 11 6 13 14 18 -More inputs
 
 if(size(startTime, 2) ~= size(endTime, 2))
     disp("Size mismatch !")
@@ -114,7 +116,8 @@ disp("Activity times (After sorting)")
 displayActivities(startTime, endTime, size(startTime,2))
 
 disp("")
-disp("Greedy activity selection by comparing startTime(i) and endTime(i+1)")
+disp("Greedy activity selection by comparing startTime(i) and endTime(i-1)")
+disp("Activity i passes the test if startTime(i) > endTime(i-1)")
 greedyActivitiesSelect()
 
 disp("")
