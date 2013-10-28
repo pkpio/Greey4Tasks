@@ -1,0 +1,6 @@
+This submission comprises of implementation in 3 different programming languages - Scilab, Python and C++
+The advantages of each language over rest is mentioned in documentation.
+
+DISCLAIMER:
+All the codes in this submission are written by the author, mentioned in each file, starting from scratch. Resemblence
+to any code is pure coincidence (unlikely) or a deliberate act of palagrism by the later party.

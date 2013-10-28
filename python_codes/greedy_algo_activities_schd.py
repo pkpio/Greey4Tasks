@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Author  : Praveen Kumar
-Created : 05/10/2013
+Created : 5th Oct.,2013
 Project : EE 677: VLSI CAD course project - Greedy Algorithm for Activity scheduling
 Github  : https://github.com/praveendath92/EE-677_project
 """
