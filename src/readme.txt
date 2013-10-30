@@ -15,7 +15,8 @@ TABLE OF CONTENTS
 
 
 2. HOW TO GET STARTED
-Please refer to documentation.pdf - ../documentation.pdf  for information regrading problem statement, algorithm.
+Run codes by referring to 'How to run' section (below) in this document.
+Refer to documentation.pdf - ../documentation.pdf  for information regrading problem statement, algorithm and many other details
 
 
 
